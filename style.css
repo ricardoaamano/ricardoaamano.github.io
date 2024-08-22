@@ -1,0 +1,296 @@
+:root {
+    --azul-oscuro: #2C3E50;
+    --azul-marino: #1A2835;
+    --gris-neutral: #7F8C8D;
+    --azul-brillante: #3498DB;
+    --amarillo-optimista: #F1C40F;
+    --gris-claro: #d6e1e1;
+}
+
+body {
+    background-color: var(--gris-claro);
+    margin: 0;
+}
+
+h1{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+h2{
+    margin-top: 40px;
+}
+/* Establece la altura mínima del contenedor principal para que sea la altura de la ventana del navegador */
+.main-container {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;  /* Los hijos (contenido y footer) se apilan verticalmente */
+    min-height: 100vh;  /* 100% del alto de la ventana del navegador */
+}
+
+.content {
+    flex: 1;
+}
+
+.navbar-left {
+    display: flex;
+    font-size: x-large;
+    align-items: center;  /* Alinea verticalmente los elementos al centro */
+    padding-left: 20px;  /* Añade un pequeño padding a la izquierda para que no esté pegado al borde */
+    width: 100%;  /* Ocupa el ancho completo de su contenedor */
+}
+
+.navbar-icon img {
+    display: flex;
+    width: auto;  /* Ajusta este valor para cambiar el ancho del ícono */
+    height: 80px; /* Ajusta este valor para cambiar la altura del ícono */
+    margin-right: 40px;  /* Añade un pequeño margen a la derecha del ícono para separarlo del nombre */
+    transition: transform 0.3s;  /* Transición suave al cambiar el tamaño */
+}
+
+.navbar-icon img:hover {
+        transform: scale(1.2);
+}
+
+.navbar {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: large;
+    display: flex;
+    justify-content: space-around;  /* Distribuye los elementos de manera equitativa en el contenedor */
+    align-items: center;            /* Alinea verticalmente los elementos al centro */
+    position: fixed;                /* Fija la barra de navegación */
+    top: 0;                        /* Asegura que esté al tope */
+    width: 100%;                   /* Ocupa el ancho completo */
+    height: 80px;                  /* Altura de la barra de navegación */
+    background-color: var(--azul-oscuro);  /* Usando el color definido anteriormente */
+    color: var(--gris-claro); /* Color de texto */
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2); /* Sombra suave en la parte inferior */
+}
+
+.navbar a {
+    margin-right: 40px;
+    text-decoration: none;  /* Elimina el subrayado de los enlaces */
+    color: var(--gris-claro); /* Color de enlace */
+    padding: 10px 20px;      /* Espaciado interno para que los enlaces sean más "clickeables" */
+    transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+}
+
+.navbar a:hover {
+    font-weight: bold;
+    background-color: var(--amarillo-optimista); /* Color de fondo al pasar el ratón */
+    color: var(--azul-marino); /* Color de texto al pasar el ratón */
+}
+
+/* Permite que el contenido crezca y ocupe todo el espacio disponible, empujando el footer hacia abajo */
+
+.main-photo {
+    float: right;      /* Hace que la imagen flote a la derecha */
+    margin-left: 10px; /* Espacio entre la imagen y el texto */
+    margin-bottom: 10px; /* Espacio debajo de la imagen, si el texto es más largo */
+}
+
+.main-photo img {
+    max-width: 300px; /* La imagen nunca será más ancha que 300px */
+    height: auto;     /* La altura se ajustará automáticamente */
+    border: 5px solid var(--azul-oscuro);  /* Agrega un borde sólido de 5px con el color azul oscuro */
+    border-radius: 10px;                   /* Añade bordes redondeados a la imagen */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);  /* Agrega una sombra a la imagen */
+    transition: transform 0.3s;            /* Agrega una transición suave para efectos como hover */
+}
+
+.main-photo img:hover {
+    transform: scale(1.1);                 /* Aumenta la imagen en un 10% al pasar el cursor */
+}
+
+.main-photo::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main {
+    padding: 60px;
+    font-size: medium;
+    color: var(--azul-marino);
+    line-height: 1.8rem;
+}
+
+.section {
+    line-height: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.cursos ul {
+    line-height: 1.2rem;
+}
+
+.cursos ul li{
+    line-height: 1.2rem;
+    margin-top: 40px;
+}
+
+/* Estilos generales para el contenedor de los botones */
+details {
+    text-align: center;  /* Centra el contenido */
+    margin: 0 auto;      /* Centra el elemento en la página */
+    width: fit-content;  /* Ajusta el ancho al contenido */
+    display: flex;       /* Usa flexbox */
+    flex-direction: column; /* Coloca los hijos (botones) en dirección vertical */
+    align-items: center;    /* Alinea los hijos al centro */
+}
+
+/* Estilos para el botón desplegable y los enlaces */
+.dropdown-button, details a {
+    width: 300px;            /* Establece un ancho fijo para todos los botones */
+    padding: 10px 20px;      /* Relleno interno */
+    margin: 5px 0;          /* Margen vertical para separación */
+    text-align: center;     /* Asegura que el texto esté centrado, especialmente para el elemento <a> */
+    border-radius: 5px;     /* Añade bordes redondeados */
+    text-decoration: none;  /* Elimina el subrayado, importante para los enlaces <a> */
+    transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+}
+
+/* Estilos para el botón desplegable */
+.dropdown-button {
+    cursor: pointer;        /* Cambia el cursor a una mano al pasar sobre él */
+    background-color: var(--azul-oscuro); /* Usando el color definido anteriormente */
+    color: var(--gris-claro);  /* Color del texto */
+    border: none;            /* Elimina el borde predeterminado */
+    outline: none;           /* Elimina el resaltado por defecto en algunos navegadores */
+}
+
+.dropdown-button:hover {
+    background-color: var(--azul-brillante); /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* Estilos para los enlaces dentro del dropdown */
+details a {
+    color: var(--azul-oscuro); /* Color del texto */
+    background-color: var(--gris-claro);  /* Color de fondo */
+}
+
+details a:hover {
+    background-color: var(--azul-brillante); /* Cambia el color de fondo al pasar el ratón */
+}
+
+/* Estilos para el contenedor del artículo */
+.blog-post {
+    background-color: var(--gris-claro);  /* Color de fondo claro para resaltar el artículo */
+    border-radius: 8px;                   /* Bordes redondeados para un look moderno */
+    padding: 20px;                        /* Relleno interno para separar el contenido de los bordes */
+    margin: 20px 0;                       /* Margen alrededor del artículo para separarlo de otros elementos */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidad */
+    max-width: 800px;                     /* Ancho máximo para mejorar la legibilidad */
+    margin-left: auto;                    /* Centrar el artículo horizontalmente */
+    margin-right: auto; 
+}
+
+/* Estilos para el título del artículo */
+.blog-post h2 {
+    color: var(--azul-oscuro);            /* Color del título */
+    border-bottom: 2px solid var(--azul-brillante);  /* Línea debajo del título para resaltarlo */
+    padding-bottom: 10px;                 /* Espacio debajo del título */
+    margin-bottom: 20px;                 /* Separación entre el título y el contenido */
+    padding: 40px;
+}
+
+/* Estilos para la fecha del artículo */
+.blog-post .date {
+    color: var(--azul-brillante);        /* Color para resaltar la fecha */
+    font-style: italic;                  /* Estilo cursiva para la fecha */
+    margin-bottom: 15px;                 /* Separación entre la fecha y el contenido */
+}
+
+/* Estilos para el contenido del artículo */
+.blog-post p {
+    color: var(--azul-marino);           /* Color del texto del artículo */
+    line-height: 1.6;                    /* Espacio entre líneas para mejorar la legibilidad */
+    margin-bottom: 20px;                 /* Separación entre párrafos */
+    text-align: justify;                 /* Alineación justificada para un aspecto profesional */
+}
+
+/* Estilos para el último párrafo para quitar el margen extra */
+.blog-post p:last-child {
+    margin-bottom: 0;
+}
+
+.blog-post ul {
+    line-height: 1.2rem;
+}
+
+.blog-post ul li{
+    line-height: 1.5rem;
+    margin-top: 20px;
+}
+/* Estilos del formulario de contacto */
+.grid-form {
+    font-family: 'Roboto Condensed', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Dividimos en dos columnas, siendo la segunda el doble de ancho que la primera */
+    gap: 15px; /* Espaciado entre elementos */
+    max-width: 500px; /* Establecemos un ancho máximo */
+    margin: 100px auto; /* Esto añade un margen superior e inferior de 100px y centra el formulario horizontalmente. */
+
+}
+
+.form-row {
+    grid-column: span 2; /* Hacemos que los elementos ocupen ambas columnas por defecto */
+}
+
+label {
+    display: block;
+    padding: 5px 0;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+button {
+    width: 100%; /* Hacemos que los elementos se expandan a todo el ancho de su contenedor */
+    padding: 10px;
+    box-sizing: border-box; /* Aseguramos que padding y bordes estén incluidos en el ancho total */
+    border: 1px solid #aaa;
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 1em;
+    transition: border-color 0.3s; /* Transición suave al cambiar el color del borde */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: var(--azul-brillante); /* Cambiamos el color del borde al enfocar */
+    outline: none; /* Quitamos el contorno predeterminado al enfocar */
+}
+
+textarea {
+    resize: vertical; /* Permite al usuario redimensionar el textarea solo verticalmente */
+    min-height: 100px; /* Altura mínima del textarea */
+}
+
+button {
+    background-color: var(--azul-oscuro);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+}
+
+button:hover {
+    background-color: var(--azul-brillante); /* Cambiamos el color de fondo al pasar el ratón */
+}
+
+/* Estilos para el footer */
+.sticky-footer {
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-top: 40px;
+    padding: 20px;
+    width: 100%;
+    background-color: var(--azul-oscuro);  /* Usando el color definido anteriormente */
+    color: var(--gris-claro); /* Color de texto */
+}
